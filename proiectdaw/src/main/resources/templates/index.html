@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Proiect Daw</title>
+</head>
+<body>
+<div align="center">
+	<h1>Proiect Dezvolarea Aplicatiilor Web</h1>
+	<a href="new">Creaza un nou produs</a>
+	<br/><br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Denumire</th>
+				<th>Firma</th>
+				<th>Pret</th>
+				<th>Actiuni</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="produs : ${listProdus}">
+			<td th:text="${produs.Id}">Id</td>
+			<td th:text="${produs.Denumire}">Denumire</td>
+			<td th:text="${produs.Firma}">Firma</td>
+			
+			<td th:text="${produs.Pret}">Pret</td>
+			<td>
+			<a th:href="@{'/edit/' + ${produs.Id}}">Edit</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a th:href="@{'/delete/' + ${produs.Id}}">Delete</a>
+			
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
